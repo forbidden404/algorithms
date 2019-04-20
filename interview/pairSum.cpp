@@ -34,18 +34,18 @@ void pairSum(vector<int>& arr, int k) {
         return;
 
     unordered_set<int> seen; // Unordered_set has Search and Insertion with O(1) in average
-    unordered_set<int> output; // Avoid duplicates
+    set<pair<int, int>> output; // Avoid duplicates
     for (auto num : arr) { // Time: O(n)
         int target = k - num;
         const bool is_in = seen.find(target) != seen.end(); // Average time: O(1)
         if (is_in) {
-            output.insert(min(num, target));
+            output.insert(make_pair(min(num, target), max(num, target)));
         }
         seen.insert(num);
     }
 
     for (auto num : output) {
-        cout << num << ", " << k - num << endl;
+        cout << num.first << ", " << num.second << endl;
     }
 
     // Time complexity: O(n) * (O(1) + O(1)) = O(n)
