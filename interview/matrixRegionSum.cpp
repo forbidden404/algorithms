@@ -40,14 +40,18 @@ int matrixRegionSum(vector<vector<int>> matrix,
         vector<vector<int>> sums) {
     if (matrix.empty()) return 0;
 
+    // OD
     int res = sums[bri][brj];
 
+    // OB
     if (tli > 0)
         res -= sums[tli-1][brj];
 
+    // OC
     if (tlj > 0)
         res -= sums[bri][tlj - 1];
 
+    // OA
     if (tli > 0 && tlj > 0)
         res += sums[tli-1][tlj-1];
 

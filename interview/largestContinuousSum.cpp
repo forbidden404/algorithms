@@ -5,11 +5,13 @@ using namespace std;
 
 int largestContinuousSum(vector<int>& v) {
     if (v.empty()) return 0;
+    
     int currentSum;
     int maxSum = currentSum = v[0];
+
     for (auto num : v) {
-        currentSum= max(currentSum+num, num);
-        maxSum= max(currentSum, maxSum);
+        currentSum = max(currentSum+num, num);
+        maxSum = max(currentSum, maxSum);
     }
     return maxSum;
 }
