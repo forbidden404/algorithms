@@ -40,6 +40,7 @@ unordered_map<string, vector<string>> constructGraph(unordered_set<string> &dict
 
 vector<string> transformWord(unordered_map<string, vector<string>> &graph, string start, string goal) {
     deque<vector<string>> paths;
+    paths.push_back({start});
     unordered_set<string> extended;
 
     while (!paths.empty()) {
